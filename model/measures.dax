@@ -1,0 +1,5 @@
+Revenue := SUMX ( Sales, Sales[Quantity] * Sales[Unit Price] )
+Units Sold := SUM ( Sales[Quantity] )
+Stock On Hand := SUM ( Inventory[On Hand] )
+Sell Through % := DIVIDE ( [Units Sold], [Units Sold] + [Stock On Hand] )
+Low Stock Products := COUNTROWS ( FILTER ( VALUES(Products[Product ID]), [Stock On Hand] < 10 ) )
